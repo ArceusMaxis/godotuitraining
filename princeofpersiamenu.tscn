@@ -1,0 +1,143 @@
+[gd_scene load_steps=8 format=3 uid="uid://b07jq2nud6tfp"]
+
+[ext_resource type="Texture2D" uid="uid://bgku1mmxalh3b" path="res://wallpapers/Princeofpersia.png" id="1_g300d"]
+[ext_resource type="Texture2D" uid="uid://c6sdcckp70h2h" path="res://wallpapers/Arcane Circle Clip Art_jps 00005.png" id="2_sqemm"]
+[ext_resource type="FontFile" uid="uid://db70r7awbwad6" path="res://PRINP___.ttf" id="3_h74ef"]
+[ext_resource type="Theme" uid="uid://pjmg3jpx4flx" path="res://PoPTHEME.tres" id="4_qwfrl"]
+
+[sub_resource type="Animation" id="Animation_ny6st"]
+resource_name = "Spiral"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_ql5a8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vtjn"]
+_data = {
+"RESET": SubResource("Animation_ql5a8"),
+"Spiral": SubResource("Animation_ny6st")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_g300d")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 464.0
+offset_top = 48.0
+offset_right = 1456.0
+offset_bottom = 1040.0
+rotation = 6.28319
+pivot_offset = Vector2(497.652, 510.996)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_sqemm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1vtjn")
+}
+autoplay = "Spiral"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="spacertop" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.513726, 0.513726, 0.513726, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.443137, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 30
+theme_override_constants/shadow_outline_size = 70
+theme_override_fonts/font = ExtResource("3_h74ef")
+theme_override_font_sizes/font_size = 120
+text = "Bitch of Bombay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.513233, 0.513233, 0.513233, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.442501, 7.58059e-07, 1.44392e-07, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 65
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_h74ef")
+theme_override_font_sizes/font_size = 75
+text = "Baddest Hoe in town"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacermid" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="START" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_qwfrl")
+text = "START NEW GAME"
+
+[node name="OPTIONS" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_qwfrl")
+text = "OPTIONS"
+
+[node name="CHANGEPROFILE" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_qwfrl")
+text = "CHANGE PROFILE"
+
+[node name="QUIT" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_qwfrl")
+text = "QUIT"
+
+[node name="spacerbottom" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0

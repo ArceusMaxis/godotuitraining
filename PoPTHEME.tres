@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://pjmg3jpx4flx"]
+
+[ext_resource type="FontFile" uid="uid://cbsqwyt7b3cnl" path="res://Trajan Pro.ttf" id="1_w30cw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fks7d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oksac"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81vuw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v338p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6i5tf"]
+
+[resource]
+default_font_size = 50
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.0745098, 0.027451, 0.0313726, 1)
+Button/fonts/font = ExtResource("1_w30cw")
+Button/styles/disabled = SubResource("StyleBoxEmpty_fks7d")
+Button/styles/focus = SubResource("StyleBoxEmpty_oksac")
+Button/styles/hover = SubResource("StyleBoxEmpty_81vuw")
+Button/styles/normal = SubResource("StyleBoxEmpty_v338p")
+Button/styles/pressed = SubResource("StyleBoxEmpty_6i5tf")

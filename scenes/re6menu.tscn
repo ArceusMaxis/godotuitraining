@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://dq7tk2rdqgd3i"]
+
+[ext_resource type="Texture2D" uid="uid://ckuhk0ly2st4v" path="res://wallpapers/RE6-Wallpaper-BG.png" id="1_ap0qs"]
+[ext_resource type="Shader" path="res://shaders/ripples.gdshader" id="2_frags"]
+[ext_resource type="Theme" uid="uid://xlqdkeeabbpi" path="res://RE6THEME.tres" id="3_7n5h7"]
+
+[sub_resource type="Curve" id="Curve_8neeq"]
+max_value = 360.0
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.255618, 360), 0.0, 0.0, 0, 0, Vector2(0.505618, -360), 0.0, 0.0, 0, 0, Vector2(0.747191, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_iwgl4"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.247191, 1), 0.0, 0.0, 0, 0, Vector2(0.553371, 1.30306), 0.0, 0.0, 0, 0, Vector2(0.789326, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_3ndmu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.101124, 0.502188), 0.0, 0.0, 0, 0, Vector2(0.247191, 0.0257112), 0.0, 0.0, 0, 0, Vector2(0.317416, 0.701313), 0.0, 0.0, 0, 0, Vector2(0.421348, 0.28884), 0.0, 0.0, 0, 0, Vector2(0.474719, 0.914661), 0.0, 0.0, 0, 0, Vector2(0.592697, 0.473742), 0.0, 0.0, 0, 0, Vector2(0.63764, 1), 0.0, 0.0, 0, 0, Vector2(0.733146, 0.68709), 0.0, 0.0, 0, 0, Vector2(0.794944, 1), 0.0, 0.0, 0, 0, Vector2(0.839888, 0.459519), 0.0, 0.0, 0, 0, Vector2(0.912921, 0.615974), 0.0, 0.0, 0, 0, Vector2(0.994382, 0.502188), 0.0, 0.0, 0, 0]
+point_count = 13
+
+[sub_resource type="Gradient" id="Gradient_0u3la"]
+offsets = PackedFloat32Array(0, 0.486667, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y3mnl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b6p6a"]
+seamless_blend_skirt = 0.5
+color_ramp = SubResource("Gradient_0u3la")
+noise = SubResource("FastNoiseLite_y3mnl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u2mr4"]
+shader = ExtResource("2_frags")
+shader_parameter/strength = 2.5
+shader_parameter/movement_direction = Vector2(-0.5, 1)
+shader_parameter/movement_speed = 0.1
+shader_parameter/oscillation_speed = 1.0
+shader_parameter/NOISE_TEXTURE = SubResource("NoiseTexture2D_b6p6a")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Re6-wallpaper-bg" type="TextureRect" parent="."]
+modulate = Color(0.160784, 0.368627, 1, 1)
+offset_left = -176.0
+offset_top = -99.0
+offset_right = 2096.0
+offset_bottom = 1179.0
+texture = ExtResource("1_ap0qs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 920.0
+offset_top = 349.0
+offset_right = 1373.0
+offset_bottom = 1014.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="PLAY" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_7n5h7")
+text = "PLAY GAME"
+alignment = 0
+
+[node name="GRAPHICS" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_7n5h7")
+text = "GRAPHICS SETTINGS"
+alignment = 0
+
+[node name="OPTIONS" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_7n5h7")
+text = "OPTIONS
+"
+alignment = 0
+
+[node name="CREDITS" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_7n5h7")
+text = "CREDITS"
+alignment = 0
+
+[node name="RECORDS" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_7n5h7")
+text = "RECORDS"
+alignment = 0
+
+[node name="SPECIAL FEATURES" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_7n5h7")
+text = "SPECIAL FEATURES"
+alignment = 0
+
+[node name="STEAM STORE" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_7n5h7")
+text = "STEAM STORE"
+alignment = 0
+
+[node name="QUIT" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_7n5h7")
+text = "QUIT"
+alignment = 0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-24, 1104)
+rotation = -0.785397
+amount = 4
+lifetime = 2.5
+randomness = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 15.96
+initial_velocity_max = 420.21
+angular_velocity_min = 76.6
+angular_velocity_max = 572.55
+radial_accel_min = 25.53
+radial_accel_max = 44.68
+angle_max = 107.2
+angle_curve = SubResource("Curve_8neeq")
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_iwgl4")
+anim_offset_max = 1.0
+anim_offset_curve = SubResource("Curve_3ndmu")
+
+[node name="horizontal-displacement" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_u2mr4")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
